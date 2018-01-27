@@ -1,17 +1,14 @@
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 
-var PostSchema = new Schema({
+var ContractorSchema = new Schema({
   createdAt: { type: Date },
   updatedAt: { type: Date },
-  title: { type: String, required: true },
-  url: { type: String, required: true },
-  summary: { type: String, required: true },
-  subreddit: { type: String, required: true },
-  comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }]
+  slug: { type: String, required: true },
+  website: { type: String, required: true }
 })
 
-PostSchema.pre('save', function(next){
+ContractorSchema.pre('save', function(next){
   // SET createdAt AND updatedAt
   var now = new Date()
   this.updatedAt = now
@@ -21,4 +18,4 @@ PostSchema.pre('save', function(next){
   next()
 })
 
-module.exports = mongoose.model('Contractor', PostSchema);
+module.exports = mongoose.model('Contractor', ContractorSchema);
