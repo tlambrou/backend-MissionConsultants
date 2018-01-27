@@ -6,21 +6,18 @@ var bodyParser = require('body-parser')
 var cookie = require('cookie')
 var cookieParser = require('cookie-parser')
 var acceptOverride = require('connect-acceptoverride')
+var mongoose = require('mongoose')
+
+mongoose.connect('mongodb://localhost/missionconsultants')
 
 // var jwt = require('express-jwt')
 // var slugify = require('slugify')
 // var moment = require('moment')
 
-// SEQUELIZE
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize('soniccook_dev', 'postgres', null, { dialect: 'postgres' });
-const sync = () => {
-  return sequelize.sync({ force: true })
-}
-
 // ALLOW CORS
+const whitelist = (process.env.NODE_ENV === 'production') ? "http://www.missionconsultants.io" : "*"
 var allowCrossDomain = function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', "*");
+  res.header('Access-Control-Allow-Origin', whitelist);
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
   next();
@@ -40,15 +37,10 @@ app.use(function (req, res, next) {
 
 //ROUTES
 //===========
-require('./controllers/recipes.js')(app);
-require('./controllers/ingredients.js')(app);
-require('./controllers/search.js')(app);
+require('./controllers/contractors.js')(app);
 
 // SERVER
 var port = process.env.PORT || 8000;
 app.listen(port, function () {
-  console.log('SonicCook listening on port 8000!');
-  sync()
-    .then(() => console.log('... and Database synced!'))
-    .catch( e => console.log(e))
+  console.log('Mission Consultants listening on port 8000!');
 });
