@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": null,
+    "database": "soniccook_dev",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": null,
+    "database": "soniccook_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "voikevnawnjnua",
+    "password": "b427cf51b36bcb61728990ef3d994e97969193998dce30b48248dcda8fc97fc1",
+    "database": "dd2jnra6o0ca9i",
+    "host": "ec2-54-243-48-183.compute-1.amazonaws.com",
+    "dialect": "postgres"
+  }
+}

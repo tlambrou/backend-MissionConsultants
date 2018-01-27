@@ -1,0 +1,45 @@
+{
+  "name": "backend-soniccook",
+  "version": "1.0.0",
+  "description": "Backend app for SonicCook.  A web portal cookbook for musicians.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "Music",
+    "Musician",
+    "Cookbook",
+    "Cook",
+    "Sonic",
+    "Musical",
+    "Gear"
+  ],
+  "author": "Tassos Lambrou",
+  "license": "ISC",
+  "dependencies": {
+    "amazon-product-api": "^0.4.4",
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "connect-acceptoverride": "0.0.3",
+    "cookie": "^0.3.1",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "pg": "^7.4.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.26.0",
+    "sequelize-cli": "^3.2.0",
+    "youtube-search": "^1.0.10"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tlambrou/backend-soniccook.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tlambrou/backend-soniccook/issues"
+  },
+  "homepage": "https://github.com/tlambrou/backend-soniccook#readme"
+}
