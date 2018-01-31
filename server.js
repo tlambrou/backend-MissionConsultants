@@ -15,7 +15,7 @@ mongoose.connect('mongodb://localhost/missionconsultants')
 // var moment = require('moment')
 
 // ALLOW CORS
-const whitelist = (process.env.NODE_ENV === 'production') ? "http://www.missionconsultants.io" : "*"
+const whitelist = (process.env.NODE_ENV === 'production') ? "www.missionconsultants.io" : "*"
 var allowCrossDomain = function(req, res, next) {
   res.header('Access-Control-Allow-Origin', whitelist);
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
