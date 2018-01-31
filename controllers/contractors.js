@@ -5,7 +5,7 @@ module.exports = (app) => {
 
   // Return's Make School Profile
   app.get('/mslink/:slug', (req, res) => {
-    axios.get('http://www.makeschool.com/portfolios/' + req.params.slug +'.json')
+    axios.get('https://www.makeschool.com/portfolios/' + req.params.slug +'.json')
     .then(response => {
       console.log(response)
       if (response.status === 200) {
@@ -20,7 +20,7 @@ module.exports = (app) => {
 
   // Make School Portfolios INDEX
   app.get('/allmspf', (req, res) => {
-    axios.get('http://www.makeschool.com/portfolios.json')
+    axios.get('https://www.makeschool.com/portfolios.json')
     .then(response => {
       console.log(response)
       if (response.status === 200) {
