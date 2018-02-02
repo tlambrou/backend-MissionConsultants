@@ -7,7 +7,7 @@ module.exports = (app) => {
   app.get('/mslink/:slug', (req, res) => {
     axios.get('https://www.makeschool.com/portfolios/' + req.params.slug +'.json')
     .then(response => {
-      console.log(response)
+      console.log("Loaded portfolio: ",response)
       if (response.status === 200) {
         res.json(response.data)
       }
@@ -22,7 +22,10 @@ module.exports = (app) => {
   app.get('/allmspf', (req, res) => {
     axios.get('https://www.makeschool.com/portfolios.json')
     .then(response => {
-      console.log(response)
+      console.log("--- Collected",response.data.length, "profiles from MakeSchool.com. ---")
+    response.data.map((profile) => {
+      process.stdout.write(" | " + profile.first_name + " " + profile.last_name)
+    })
       if (response.status === 200) {
         res.json(response.data)
       }
