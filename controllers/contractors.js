@@ -22,7 +22,7 @@ module.exports = (app) => {
   app.get('/allmspf', (req, res) => {
     axios.get('https://www.makeschool.com/portfolios.json')
     .then(response => {
-      console.log("--- Collected",response.data.length, "profiles from MakeSchool.com. ---")
+      console.log("\n\n--- Collected",response.data.length, "profiles from MakeSchool.com. ---")
     response.data.map((profile) => {
       process.stdout.write(" | " + profile.first_name + " " + profile.last_name)
     })
