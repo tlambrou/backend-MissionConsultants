@@ -8,7 +8,15 @@ var cookieParser = require('cookie-parser')
 var acceptOverride = require('connect-acceptoverride')
 var mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost/missionconsultants')
+//Set up default mongoose connection
+var mongoDB =  (process.env.NODE_ENV === 'production') ? process.env.MONGODB_URI : 'mongodb://localhost/my_database';
+mongoose.connect(mongoDB);
+// Get Mongoose to use the global promise library
+mongoose.Promise = global.Promise;
+//Get the default connection
+var db = mongoose.connection;
+//Bind connection to error event (to get notification of connection errors)
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // var jwt = require('express-jwt')
 // var slugify = require('slugify')
