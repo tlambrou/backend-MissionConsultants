@@ -4,7 +4,7 @@ var axios = require('axios')
 module.exports = (app) => {
 
   // CREATE
-  app.post('/inquiry/create', (req, res) => {
+  app.post('/inquiry', (req, res) => {
 
     var inquiry = new Inquiry(req.body)
     inquiry.save((err, inquiry) => {
