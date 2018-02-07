@@ -1,7 +1,14 @@
 var Inquiry = require('../models/inquiry')
 var axios = require('axios')
+var mailer = require('../mailers/mailer')
+
 
 module.exports = (app) => {
+
+  app.get('/test', (req, res) => {
+
+    res.send('Your message was theoretically sent. :D')
+  })
 
   // CREATE
   app.post('/inquiry', (req, res) => {
@@ -12,6 +19,9 @@ module.exports = (app) => {
         console.log("Server Error:" + err)
       } else {
         console.log("Response from Inquiry/Create: ", inquiry)
+        // Send mailer notification
+        mailer(inquiry)
+
         res.status(200)
         return res.json({
           msg: 'Inquiry added successfully!',
